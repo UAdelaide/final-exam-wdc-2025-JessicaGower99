@@ -22,8 +22,13 @@ app.use('/users', usersRouter);
 
 /////////////////
 app.get('/api/dogs', async (req, res) => {
-  try {
+    try {
+        const [rows] = await db.query(`
+      SELECT d.name AS dog_name, d.size, u.username AS owner_username
+      FROM Dogs d
+      JOIN Users u ON d.owner_id = u.user_id
+    `);
 
 
 
-module.exports = app;
+        module.exports = app;
