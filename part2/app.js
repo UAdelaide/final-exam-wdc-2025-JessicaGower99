@@ -18,12 +18,11 @@ app.use(session({
     secret: 'this_is_secret',
     resave: false,
     saveUninitialized: false, // so wasted session on those thta visit but dont loggin
-    cookie: {
+    cookie: { /////////////////////////////////////////////////////////////////////////////////
         secure: false, // true if using HTTPS
         httpOnly: true,
         maxAge: 1000 * 60 * 60 // 1 hour
     }
-}));
 }));
 
 app.use('/api/walks', walkRoutes);
