@@ -23,6 +23,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 .catch(function (err) {
                     console.error('Failed to get a cute dog image:', err);
                 });
-
-            app.mount('#app');
-        });
+        },
+        app.mount('#app');
+    });
