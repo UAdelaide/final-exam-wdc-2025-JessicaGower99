@@ -37,7 +37,41 @@
       <button type="submit" class="btn-submit-login">Login</button>
     </form>
 
-    
+    <!-- !!!!!!!!!!!!!!!!!! -->
+
+    <!-- Dog List Section -->
+    <div class="mt-5">
+      <h2 class="text-secondary mb-3">Registered Dogs</h2>
+      <div v-if="dogs.length === 0">No dogs found.</div>
+      <table v-else class="table table-bordered align-middle">
+        <thead>
+          <tr>
+            <th>Dog ID</th>
+            <th>Name</th>
+            <th>Size</th>
+            <th>Owner ID</th>
+            <th>Random Image</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="dog in dogs" :key="dog.dog_id">
+            <td>{{ dog.dog_id }}</td>
+            <td>{{ dog.name }}</td>
+            <td>{{ dog.size }}</td>
+            <td>{{ dog.owner_id }}</td>
+            <td><img :src="dog.image" alt="Dog image" class="img-thumbnail" style="max-width: 100px;"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+
+    <!-- !!!!!!!!!!!!!!!!!! -->
+
+
+
+
     <!-- will show an errors bound to the data() -->
     <div v-if="error" class="alert alert-danger">{{ error }}</div>
   </div>
