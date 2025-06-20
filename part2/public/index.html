@@ -24,7 +24,7 @@
     <form @submit.prevent="login">
       <div class="mb-3">
         <label for="username" class="form-label">Username</label>
-        v-model binds the username to 
+        <!-- v-model binds the username to data() in vue -->
         <input v-model="username" type="text" class="form-control" id="username" required>
       </div>
 
