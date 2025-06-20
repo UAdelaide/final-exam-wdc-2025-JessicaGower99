@@ -83,16 +83,16 @@
         /////////////////////////
         async function getCurrentUser() {
           try {
-            const res = await fetch('/api/users/me');
+            const res = await fetch('/api/users/me', { credentials: 'include' }); // important!
             if (!res.ok) throw new Error('Failed to get current user');
             const userData = await res.json();
-            return userData.user_id;
+            console.log('Current user data:', userData);
+            return userData.user_id; // adjust if API uses a different key
           } catch (err) {
             error.value = err.message;
             return null;
           }
         }
-
         async function applyToWalk(requestId) {
           try {
             const userId = await getCurrentUser();  // call it here!
