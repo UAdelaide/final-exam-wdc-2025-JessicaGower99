@@ -101,7 +101,7 @@
       document.getElementById('logoutBtn').addEventListener('click', async () => {
         try {
           const res = await fetch('/api/users/logout', {
-            method: 'POST', // post req to 
+            method: 'POST', // post req to logout and if successfull go back to index.html home page
             credentials: 'include'
           });
           if (res.ok) {
@@ -113,7 +113,6 @@
           alert('Error logging out');
         }
       });
-      ///////////////////////////////////////////
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
