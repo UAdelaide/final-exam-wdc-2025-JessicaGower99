@@ -55,6 +55,7 @@
       methods: {
         async login() {
           this.error = '';
+          // send post request with username and password
           try {
             const res = await fetch('/api/users/login', {
               method: 'POST',
