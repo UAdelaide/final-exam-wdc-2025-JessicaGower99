@@ -18,10 +18,15 @@ a {
   margin-bottom: 30px;
 }
 
-#app p {
-  text-align: left;
-}
+.dogContent{
 
-#app img {
-  text-align: right;
+
+  .dog-info {
+  display: flex;
+  align-items: center; /* vertically center the image and text */
+  justify-content: center; /* center horizontally if container is wider */
+  gap: 30px; /* space between image and text */
+  max-width: 700px;
+  margin: 0 auto; /* center the flex container */
+}
 }
