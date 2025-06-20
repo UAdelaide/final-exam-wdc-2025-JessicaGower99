@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         },
         mounted() {
-            this.fetchDogImage(); // Initial load
+            this.fetchDogImage();
         }
     });
 
