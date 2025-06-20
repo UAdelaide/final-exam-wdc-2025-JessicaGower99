@@ -24,5 +24,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
 
         }
+        ,
+        methods: {
+            refreshPage() {
+                location.reload(); // This reloads the page
+            }
+        }
     }).mount('#app');
 });
