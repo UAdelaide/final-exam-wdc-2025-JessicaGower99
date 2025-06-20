@@ -9,11 +9,15 @@ const app = Vue.createApp({
     },
     //get random image
     mounted() {
-        fetch('https://dog.ceo/api/breeds/image/random'),
-          .then(res => res.json())
-                .then(data => {
-                    this.dogImageUrl = data.message;
-                })
-                .catch(err => {
-                    console.error('Failed to load dog image:', err);
-                });
+        fetch('https://dog.ceo/api/breeds/image/random')
+            .then(res => res.json())
+            .then(data => {
+                this.dogImageUrl = data.message;
+            })
+            .catch(err => {
+                console.error('Failed to load dog image:', err);
+            });
+    }
+});
+
+app.mount('#app');
