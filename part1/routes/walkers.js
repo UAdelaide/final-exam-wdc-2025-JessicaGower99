@@ -13,7 +13,7 @@ router.get('/summary', async (req, res) => {
         COUNT(CASE WHEN w.status = 'completed' THEN 1 END) AS completed_walks
       FROM Users user
       LEFT JOIN WalkRequests w ON user.user_id = w.walker_id
-      LEFT JOIN Ratings r ON w.walk_id = rate.walk_id
+      LEFT JOIN WalkRatings r ON w.walk_id = rate.walk_id
       WHERE user.user_type = 'walker'
       GROUP BY user.user_id
     `);
