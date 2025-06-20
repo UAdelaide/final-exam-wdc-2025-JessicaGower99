@@ -76,23 +76,4 @@ router.post('/logout', (req, res) => {
   });
 });
 
-
-//////////////////////////////////////////
-router.get('/owners/dogs', async (req, res) => {
-  if (!req.session.user) {
-    return res.status(401).json({ error: 'Not logged in' });
-  }
-
-  const ownerId = req.session.user.id;
-
-  try {
-    const [dogs] = await db.query('SELECT dog_id, name FROM Dogs WHERE owner_id = ?', [ownerId]);
-    res.json(dogs);
-  } catch (error) {
-    console.error('Failed to load dogs:', error);
-    res.status(500).json({ error: 'Failed to load dogs' });
-  }
-});
-///////////////////////////////////
-
 module.exports = router;
