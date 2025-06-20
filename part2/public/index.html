@@ -55,7 +55,7 @@
       methods: {
         async login() {
           this.error = '';
-          // send post request with username and password
+          // send post request with username and password to see if anything comes back
           try {
             const res = await fetch('/api/users/login', {
               method: 'POST',
