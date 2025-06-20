@@ -98,7 +98,7 @@
         try {
           const res = await fetch('/api/users/logout', {
             method: 'POST', // post req to logout and if successfull go back to index.html home page
-            credentials: 'include'
+            credentials: 'include' // inlcude cookies
           });
           if (res.ok) {
             window.location.href = '/index.html';
