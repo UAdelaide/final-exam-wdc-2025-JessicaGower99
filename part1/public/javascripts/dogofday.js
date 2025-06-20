@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 dogName: 'Stinky',
                 dogBreed: 'Unknown',
                 dogAge: '3 years'
-            };
+            },
         },
         // get random image of dog
         mounted() {
