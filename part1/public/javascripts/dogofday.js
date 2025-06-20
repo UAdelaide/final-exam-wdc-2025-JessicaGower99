@@ -9,7 +9,7 @@ const app = Vue.createApp({
     },
 //get random image
 mounted(){
-    fetch()
+    fetch('https://dog.ceo/api/breeds/image/random)
 }
 
 );
