@@ -25,13 +25,13 @@ app.use('/users', usersRouter);
 app.get('/api/dogs', async (req, res) => {
     try {
         const [rows] = await db.query(`
-      SELECT d.name AS dog_name, d.size, u.username AS owner_username
+      SELECT dog.name AS dog_name, dog.size, u.username AS owner_username
       FROM Dogs d
       JOIN Users u ON d.owner_id = u.user_id
     `);
         res.json(rows);
     } catch (err) {
-        console.error("DATABASE ERROR:", err); // 
+        console.error("DATABASE ERROR:", err); // try to debug db connection issue
         res.status(500).json({ error: 'Failed to retrieve dogs.' });
     }
 });
