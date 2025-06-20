@@ -20,6 +20,8 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/dogs', dogsRouter); /////////////////////
 
+module.exports = app;
+
 
 // //debug connection
 // (async () => {
@@ -67,5 +69,3 @@ app.use('/dogs', dogsRouter); /////////////////////
 //     }
 // })();
 
-
-module.exports = app;
