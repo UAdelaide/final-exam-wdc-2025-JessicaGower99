@@ -4,6 +4,6 @@ const app = Vue.createApp({
             dogImgURL: '',
             dogName: 'Stinky',
             dogBreed: 'Unknown',
-            dogAge: ''
+            dogAge: '3 years'
         };
     },);
