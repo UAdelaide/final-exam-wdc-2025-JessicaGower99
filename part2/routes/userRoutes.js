@@ -65,12 +65,14 @@ router.post('/login', async (req, res) => {
   }
 });
 
-router.post('/logout', (req,res) => {
-  req.session.destry(err => {
-    if (err){
+router.post('/logout', (req, res) => {
+  req.session.destroy(err => {
+    if (err) {
       return res.status(500).json({ error: 'Loggout failed.' });
 
     }
+    res.clearCookie('connect.sid'); // get rid of session cookie
+    res.json({ message: 'Logged out successfully' });
   });
 });
 
