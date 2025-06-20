@@ -6,6 +6,9 @@ var db = require('../db');
 router.get('/summary', async (requestAnimationFrame, res) => {
     try {
         const [rows] = await db.query('
+            SELECT
+        user.username AS walker_username,
+        COUNT(r.rating_id) AS total_ratings,
             ');
             res.json(rows);
     } catch (err) {
