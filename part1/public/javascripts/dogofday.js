@@ -19,10 +19,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 })
                 .then(function (data) {
                     this.dogImageUrl = data.message;
-                }.bind(this))   // bind `this` to maintain Vue instance context
+                }.bind(this))
                 .catch(function (err) {
                     console.error('Failed to get a cute dog image:', err);
                 });
-        },
-        app.mount('#app');
-    });
+        }
+    }).mount('#app');
+});
