@@ -1,30 +1,30 @@
-document.addEventListener('DOMContentLoaded', () => {
+// document.addEventListener('DOMContentLoaded', () => {
 
-    const { createApp } = Vue;
+//     const { createApp } = Vue;
 
-    const app = createApp({
-        data() {
-            return {
-                dogImageUrl: '',
-                dogName: 'Stinky',
-                dogBreed: 'Unknown',
-                dogAge: '3 years'
-            };
-        },
-        mounted() {
-            fetch('https://dog.ceo/api/breeds/image/random')
-                .then(function (res) {
-                    return res.json();
-                })
-                .then(function (data) {
-                    this.dogImageUrl = data.message;
-                }.bind(this))
-                .catch(function (err) {
-                    console.error('Failed to get a cute dog image:', err);
-                });
-        }
-    }).mount('#app');
-});
+//     const app = createApp({
+//         data() {
+//             return {
+//                 dogImageUrl: '',
+//                 dogName: 'Stinky',
+//                 dogBreed: 'Unknown',
+//                 dogAge: '3 years'
+//             };
+//         },
+//         mounted() {
+//             fetch('https://dog.ceo/api/breeds/image/random')
+//                 .then(function (res) {
+//                     return res.json();
+//                 })
+//                 .then(function (data) {
+//                     this.dogImageUrl = data.message;
+//                 }.bind(this))
+//                 .catch(function (err) {
+//                     console.error('Failed to get a cute dog image:', err);
+//                 });
+//         }
+//     }).mount('#app');
+// });
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -42,11 +42,13 @@ document.addEventListener('DOMContentLoaded', () => {
         methods: {
             fetchDogImage() {
                 fetch('https://dog.ceo/api/breeds/image/random')
-                    .then(res => res.json())
-                    .then(data => {
-                        this.dogImageUrl = data.message;
+                    .then(function (res) {
+                        return res.json();
                     })
-                    .catch(err => {
+                    .then(function (data) {
+                        this.dogImageUrl = data.message;
+                    }.bind(this))
+                    .catch(function (err) {
                         console.error('Failed to get a cute dog image:', err);
                     });
             }
