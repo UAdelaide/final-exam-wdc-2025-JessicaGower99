@@ -16,7 +16,7 @@ router.get('/summary', async (requestAnimationFrame, res) => {
       LEFT JOIN Ratings rate ON w.walk_id = rate.walk_id
       WHERE user.user_type = 'walker'
 
-
+GROUP 
 
 
             ');
