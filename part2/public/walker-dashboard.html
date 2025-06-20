@@ -101,7 +101,7 @@
       document.getElementById('logoutBtn').addEventListener('click', async () => {
         try {
           const res = await fetch('/api/users/logout', {
-            method: 'POST',
+            method: 'POST', // post req to 
             credentials: 'include'
           });
           if (res.ok) {
