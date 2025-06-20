@@ -95,7 +95,7 @@
         }
         async function applyToWalk(requestId) {
           try {
-            const userId = await getCurrentUser();  // call it here!
+            const userId = await getCurrentUser();
             if (!userId) throw new Error('No user logged in');
 
             const res = await fetch(`/api/walks/${requestId}/apply`, {
