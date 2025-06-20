@@ -50,8 +50,10 @@
         const walks = ref([]);
         const message = ref('');
         const error = ref('');
-        const user = 3;
+        //const user = 3;
 
+
+        //////////////////////
         async function loadWalkRequests() {
           try {
             const res = await fetch('/api/walks');
@@ -63,28 +65,28 @@
         }
 
         async function applyToWalk(requestId) {
-      try {
-        const userId = await getCurrentUser();
-        if (!userId) throw new Error('User not logged in');
+          try {
+            const userId = await getCurrentUser();
+            if (!userId) throw new Error('User not logged in');
 
-        const res = await fetch(`/api/walks/${requestId}/apply`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ walker_id: userId })
-        });
+            const res = await fetch(`/api/walks/${requestId}/apply`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ walker_id: userId })
+            });
 
-        const result = await res.json();
-        if (!res.ok) throw new Error(result.error || 'Application failed');
+            const result = await res.json();
+            if (!res.ok) throw new Error(result.error || 'Application failed');
 
-        message.value = result.message;
-        error.value = '';
-        await loadWalkRequests();
-      } catch (err) {
-        error.value = err.message;
-        message.value = '';
-      }
-    }
-/////////////////////////////////
+            message.value = result.message;
+            error.value = '';
+            await loadWalkRequests();
+          } catch (err) {
+            error.value = err.message;
+            message.value = '';
+          }
+        }
+        /////////////////////////////////
 
         // async function applyToWalk(requestId) {
         //   try {
