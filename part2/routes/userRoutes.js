@@ -78,6 +78,19 @@ router.post('/logout', (req, res) => {
 
 
 //////////////////////////////////////////
+router.get('/owners/:ownerId/dogs', async (req, res) => {
+  const ownerId = req.params.ownerId;
 
+  try {
+    // Query dogs belonging to ownerId from your database
+    const [dogs] = await db.query('SELECT id, name FROM dogs WHERE owner_id = ?', [ownerId]);
+
+    res.json(dogs);
+  } catch (error) {
+    console.error('Failed to load dogs:', error);
+    res.status(500).json({ error: 'Failed to load dogs' });
+  }
+});
+///////////////////////////////////
 
 module.exports = router;
