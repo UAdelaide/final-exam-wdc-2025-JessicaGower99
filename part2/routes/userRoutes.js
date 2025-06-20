@@ -41,7 +41,7 @@ router.post('/login', async (req, res) => {
   const { username, password } = req.body; // chnaged from  email to username=
 
   try {
-    //get the user_id, userbame and role were the username and 
+    // get the user_id, userbame and role were the username and password match the loggin
     const [rows] = await db.query(`
       SELECT user_id, username, role FROM Users
       WHERE username = ? AND password_hash = ?
