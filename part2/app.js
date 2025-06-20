@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 require('dotenv').config();
-const session = require('express-session'); /////////////////////////
+const session = require('express-session'); // for session managemnt
 
 const app = express();
 
@@ -13,7 +13,7 @@ app.use(express.static(path.join(__dirname, '/public')));
 const walkRoutes = require('./routes/walkRoutes');
 const userRoutes = require('./routes/userRoutes');
 
-//////////////////////////
+// 
 app.use(session({
     secret: 'your-secret-key', // change this to something secret & secure
     resave: false,
