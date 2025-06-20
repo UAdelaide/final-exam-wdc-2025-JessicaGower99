@@ -12,7 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
             };
         },
         mounted() {
-            fetch
+        this.fetchDogImage(); // Use method below for fetching
+    },
+    methods: {
             fetch('https://dog.ceo/api/breeds/image/random')
                 .then(function (res) {
                     return res.json();
