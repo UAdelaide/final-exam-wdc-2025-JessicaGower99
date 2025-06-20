@@ -2,6 +2,7 @@ const app = Vue.createApp({
     data() {
         return {
             dogImgURL: '',
-            dogName: ''
+            dogName: 'Stinky',
+            dogBreed: 'unk'
         };
     },);
