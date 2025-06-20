@@ -78,13 +78,15 @@ router.post('/logout', (req, res) => {
 
 
 //////////////////////////////////////////
-router.get('/owners/:ownerId/dogs', async (req, res) => {
-  const ownerId = req.params.ownerId;
+router.get('/owners/dogs', async (req, res) => {
+  if (!req.session.user) {
+    return res.status(401).json({ error: 'Not logged in' });
+  }
+
+  const ownerId = req.session.user.id;
 
   try {
-    // Query dogs belonging to ownerId from your database
-    const [dogs] = await db.query('SELECT * FROM dogs WHERE owner_id = ?', [ownerId]);
-
+    const [dogs] = await db.query('SELECT id, name FROM dogs WHERE owner_id = ?', [ownerId]);
     res.json(dogs);
   } catch (error) {
     console.error('Failed to load dogs:', error);
