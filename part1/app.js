@@ -10,8 +10,6 @@ var usersRouter = require('./routes/users');
 var app = express();
 var db = require('./db'); //////////////////////////
 
-
-
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
