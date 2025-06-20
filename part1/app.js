@@ -9,7 +9,6 @@ var dogsRouter = require('./routes/dogs');
 
 
 var app = express();
-var db = require('./db'); //////////////////////////
 
 app.use(logger('dev'));
 app.use(express.json());
