@@ -134,8 +134,7 @@
         };
       }
     }).mount('#app');
-    /////////////////////////////////////////
-
+   
     document.getElementById('logoutBtn').addEventListener('click', async () => {
       try {
         const res = await fetch('/api/users/logout', {
