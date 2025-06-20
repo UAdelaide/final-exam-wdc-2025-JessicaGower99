@@ -40,8 +40,7 @@ app.use('/users', usersRouter);
             host: 'localhost',
             user: 'root',
             password: '',
-            database: 'testdb'
-        });
+            database: 'testdb'})});
 
         // /////////////////
         // //get dogs as json
@@ -61,4 +60,4 @@ app.use('/users', usersRouter);
         // ///////////////
 
 
-module.exports = app;
+        module.exports = app;
