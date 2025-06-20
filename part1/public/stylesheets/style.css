@@ -10,10 +10,10 @@ a {
 
 
   /* new background image styles */
-  background-image: url('/images/your-background.jpg'); /* adjust path */
-  background-size: cover;        /* cover whole screen */
-  background-position: center;   /* center the image */
-  background-repeat: no-repeat;  /* don’t tile */
+  background-image: url('/images/honey.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   background-attachment: fixed;  /* fixed when scrolling */
 
   color: white; /* optional - make text readable on dark images */
