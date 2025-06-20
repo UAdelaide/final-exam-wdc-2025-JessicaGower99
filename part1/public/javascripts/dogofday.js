@@ -13,16 +13,16 @@ document.addEventListener('DOMContentLoaded', function () {
             };
         },
         mounted() {
-            fetch('https://dog.ceo/api/breeds/image/random'){
-                .then(res => res.json())
-                .then(data => {
-                    this.dogImageUrl = data.message;
+            fetch('https://dog.ceo/api/breeds/image/random')
+                .then(function (res) {
+                    return res.json();
                 })
-                .catch(err => {
+                .then(function (data) {
+                    this.dogImageUrl = data.message;
+                }.bind(this))   // bind `this` to maintain Vue instance context
+                .catch(function (err) {
                     console.error('Failed to get a cute dog image:', err);
                 });
-        }
-    });
 
-    app.mount('#app');
-});
+            app.mount('#app');
+        });
