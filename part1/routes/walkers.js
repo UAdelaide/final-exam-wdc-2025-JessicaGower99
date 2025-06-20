@@ -8,7 +8,9 @@ router.get('/summary', async (requestAnimationFrame, res) => {
         const [rows] = await db.query('
             SELECT
         user.username AS walker_username,
-        COUNT(rate.rating_id) AS total_ratings,
+            COUNT(rate.rating_id) AS total_ratings,
+            ROUND(AVG(rate.rating), 1) AS average_rating,
+
             ');
             res.json(rows);
     } catch (err) {
