@@ -15,11 +15,10 @@ const userRoutes = require('./routes/userRoutes');
 
 // session managemnt
 app.use(session({
-    secret: 'your-secret-key',
+    secret: 'thisyour-secret-key',
     resave: false,
     saveUninitialized: false
 }));
-
 
 app.use('/api/walks', walkRoutes);
 app.use('/api/users', userRoutes);
