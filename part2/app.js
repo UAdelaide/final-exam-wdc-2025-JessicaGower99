@@ -14,7 +14,7 @@ const userRoutes = require('./routes/userRoutes');
 
 //////////////////////////
 app.use(session({
-  secret: 'your-secret-key',  // change this to something secret & secure
+  secret: 'your-secret-key', // change this to something secret & secure
   resave: false,
   saveUninitialized: false,
 }));
