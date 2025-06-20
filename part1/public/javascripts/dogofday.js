@@ -12,9 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
             };
         },
         mounted() {
-            refreshPage() {
-                location.reload();
-            },
             fetch('https://dog.ceo/api/breeds/image/random')
                 .then(function (res) {
                     return res.json();
@@ -24,7 +21,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 }.bind(this))
                 .catch(function (err) {
                     console.error('Failed to get a cute dog image:', err);
-                });
+                }),
+                refreshPage() {
+                location.reload();
+            },
         }
     }).mount('#app');
 });
