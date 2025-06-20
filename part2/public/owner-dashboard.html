@@ -10,7 +10,7 @@
 </head>
 
 <body class="bg-light">
-   <!-- Header and Logout Button -->
+  <!-- Header and Logout Button -->
   <div class="container py-3 d-flex justify-content-between align-items-center">
     <h1 class="mb-4 text-primary">Owner Dashboard</h1>
     <button type="button" id="logoutBtn" class="btn btn-danger mb-4 float-end">Logout</button>
@@ -134,7 +134,8 @@
         };
       }
     }).mount('#app');
-   
+
+    // post req to logout and if successfull go back to index.html home page
     document.getElementById('logoutBtn').addEventListener('click', async () => {
       try {
         const res = await fetch('/api/users/logout', {
@@ -150,7 +151,6 @@
         alert('Error logging out');
       }
     });
-    ///////////////////////////////////////////
 
   </script>
 
