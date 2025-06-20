@@ -15,7 +15,7 @@ const userRoutes = require('./routes/userRoutes');
 
 // session managemnt
 app.use(session({
-    secret: 'thisyour-secret-key',
+    secret: 'this_is_secret',
     resave: false,
     saveUninitialized: false
 }));
