@@ -65,13 +65,13 @@ router.post('/login', async (req, res) => {
   }
 });
 
-router.post('/logout', (req,res)) => {
+router.post('/logout', (req,res) => {
   req.session.destry(err => {
     if (err){
       return res.status(500).json({ error: 'Loggout failed.' });
 
     }
-  })
+  });
 });
 
 module.exports = router;
