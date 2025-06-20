@@ -15,7 +15,7 @@ const app = Vue.createApp({
                 this.dogImageUrl = data.message;
             })
             .catch(err => {
-                console.error('Failed to load dog image:', err);
+                console.error('Failed to a cute dog image:', err);
             });
     }
 });
