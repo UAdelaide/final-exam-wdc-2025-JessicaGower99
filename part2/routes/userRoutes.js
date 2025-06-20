@@ -55,14 +55,14 @@ router.post('/login', async (req, res) => {
       return res.status(401).json({ error: 'Invalid credentials' });
     }
 
-
+    // create a session for the user so the server can remember
     req.session.user = {
       id: rows[0].user_id,
       username: rows[0].username,
       role: rows[0].role
     };
 
-    // end role so frontend knows where to redirect
+    // assign role for redirection
     res.json({ message: 'Login successful', role: rows[0].role });
   } catch (error) {
     res.status(500).json({ error: 'Login failed' });
