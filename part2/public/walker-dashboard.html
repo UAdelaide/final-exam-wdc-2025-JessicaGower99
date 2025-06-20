@@ -62,7 +62,7 @@
           }
         }
 
-
+        // get user_id of the user logged in
         async function getCurrentUser() {
           try {
             const res = await fetch('/api/users/me', { credentials: 'include' });
