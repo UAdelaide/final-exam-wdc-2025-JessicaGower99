@@ -37,29 +37,30 @@ router.get('/me', (req, res) => {
 
 // POST login (dummy version)
 router.post('/login', async (req, res) => {
-  // , want username and password from request body
-  const { username, password } = req.body; // chnaged from  email to username=
+  const { username, password } = req.body; // chnaged from  email to
 
   try {
-    // get the user_id, userbame and role were the username and password match the loggin
     const [rows] = await db.query(`
       SELECT user_id, username, role FROM Users
       WHERE username = ? AND password_hash = ?
     `, [username, password]);
 
-    // if nothing there then invalid
     if (rows.length === 0) {
       return res.status(401).json({ error: 'Invalid credentials' });
     }
 
-    // create a session for the user so
+    //   res.json({ message: 'Login successful', user: rows[0] });
+    // } catch (error) {
+    //   res.status(500).json({ error: 'Login failed' });
+    // }
     req.session.user = {
       id: rows[0].user_id,
       username: rows[0].username,
       role: rows[0].role
     };
 
-    res.json({ message: 'Login successful' });
+    // end role so frontend knows where to redirect
+    res.json({ message: 'Login successful', role: rows[0].role });
   } catch (error) {
     res.status(500).json({ error: 'Login failed' });
   }
