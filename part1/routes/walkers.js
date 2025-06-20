@@ -3,7 +3,11 @@ var router = express.Router();
 var db = require('../db');
 
 // get walkers as json - path /api/walkers/summary'
-router.get('/summary')
+router.get('/summary', async (requestAnimationFrame, res) => {
+    try {
+        const [row]
+    }
+})
 
 
 module.exports = router;
