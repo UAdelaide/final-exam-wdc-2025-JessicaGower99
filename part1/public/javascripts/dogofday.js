@@ -6,4 +6,10 @@ const app = Vue.createApp({
             dogBreed: 'Unknown',
             dogAge: '3 years'
         };
-    },);
+    },
+//get random image
+mounted(){
+    fetch()
+}
+
+);
