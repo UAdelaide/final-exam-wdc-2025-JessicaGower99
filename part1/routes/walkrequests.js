@@ -3,10 +3,10 @@ var router = express.Router();
 var db = require('../db');
 
 // get open walk requests - path /api/walkrequests/open
-router.get('/open', async (req, res) =>{
+router.get('/open', async (req, res) => {
 
-    try {} catch (err)
-{}}}
+    try { } catch (err) { }
+});
 
 
 module.exports = router;
