@@ -6,3 +6,15 @@ body {
 a {
   color: #00B7FF;
 }
+
+
+
+  /* new background image styles */
+  background-image: url('/images/your-background.jpg'); /* adjust path */
+  background-size: cover;        /* cover whole screen */
+  background-position: center;   /* center the image */
+  background-repeat: no-repeat;  /* don’t tile */
+  background-attachment: fixed;  /* fixed when scrolling */
+
+  color: white; /* optional - make text readable on dark images */
+}
