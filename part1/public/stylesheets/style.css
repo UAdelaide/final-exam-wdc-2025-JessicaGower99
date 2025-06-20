@@ -44,3 +44,10 @@ a {
   font-weight: normal;
   margin: 0;
 }
+
+.smallWriting p {
+  font-size: 14px;
+  font-weight: normal;
+  margin-top: 0;
+  margin-bottom: 0;
+}
