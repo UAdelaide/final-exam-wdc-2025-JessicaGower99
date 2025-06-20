@@ -7,13 +7,13 @@ router.get('/summary', async (requestAnimationFrame, res) => {
     try {
         const [rows] = await db.query(`
       SELECT
-        u.username AS walker_username,
-        COUNT(r.rating_id) AS total_ratings,
-        ROUND(AVG(r.rating), 1) AS average_rating,
+        user.username AS walker_username,
+        COUNT(rate.rating_id) AS total_ratings,
+        ROUND(AVG(rate.rating), 1) AS average_rating,
         COUNT(CASE WHEN w.status = 'completed' THEN 1 END) AS completed_walks
-      FROM Users u
-      LEFT JOIN Walks w ON u.user_id = w.walker_id
-      LEFT JOIN Ratings r ON w.walk_id = r.walk_id
+      FROM Users user
+      LEFT JOIN Walks w ON user.user_id = w.walker_id
+      LEFT JOIN Ratings r ON w.walk_id = rate.walk_id
       WHERE u.user_type = 'walker'
       GROUP BY u.user_id
     `);
