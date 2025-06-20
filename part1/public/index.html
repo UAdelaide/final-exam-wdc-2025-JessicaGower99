@@ -17,9 +17,11 @@
         <div class="dogContent">
             <!-- src in :src -->
             <img v-if="dogImageUrl" :src="dogImageUrl" alt="Cute dog" width="300" />
+            <div class="dogText">
             <p>Name: {{ dogName }}</p>
             <p>Breed: {{ dogBreed }}</p>
             <p>Age: {{ dogAge }}</p>
+            </div>div
         </div>
     </div>
 </body>
