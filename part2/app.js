@@ -27,6 +27,7 @@ app.use(session({
 
 app.use('/api/walks', walkRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api', dogRoutes); /////////////////
 
 // Export the app instead of listening here
 module.exports = app;
