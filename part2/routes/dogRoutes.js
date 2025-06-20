@@ -17,10 +17,7 @@ router.get('/owners/dogs', async (req, res) => {
     }
 });
 
-
-
-////////////
-
+//////////////////////////////////////////////////
 router.get('/', async (req, res) => {
     console.log('GET /api/dogs hit');
     try {
