@@ -1,6 +1,7 @@
 console.log('Loaded: vue-setup.js');
 
 document.addEventListener('DOMContentLoaded', function () {
+    const { createApp } = Vue;
 
     const app = createApp({
         data() {
@@ -23,5 +24,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
         }
     });
+    
 
     app.mount('#app');
