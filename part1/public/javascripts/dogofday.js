@@ -7,7 +7,7 @@ const app = createApp({
             dogName: 'Stinky',
             dogBreed: 'Unknown',
             dogAge: '3 years'
-        };
+        }
     },
     mounted() {
         fetch('https://dog.ceo/api/breeds/image/random')
@@ -22,4 +22,3 @@ const app = createApp({
             });
     }
 }).mount('#app');
-});
