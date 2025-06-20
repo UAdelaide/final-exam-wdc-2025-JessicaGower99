@@ -22,4 +22,6 @@ a {
   text-align: left;
 }
 
-#app 
+#app img {
+  text-align: right;
+}
