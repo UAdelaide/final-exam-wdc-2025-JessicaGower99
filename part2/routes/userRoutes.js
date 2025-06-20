@@ -50,7 +50,7 @@ router.post('/login', async (req, res) => {
       WHERE username = ? AND password_hash = ?
     `, [username, password]);
 
-        // if nothing there then invalid
+    // if nothing matches, then invalid
     if (rows.length === 0) {
       return res.status(401).json({ error: 'Invalid credentials' });
     }
