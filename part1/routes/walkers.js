@@ -9,8 +9,8 @@ router.get('/summary', async (requestAnimationFrame, res) => {
             ');
             res.json(rows);
     } catch (err) {
-        console.error("Dang, database error:", err); // try to debug db connection issue
-        res.status(500).json({ error: 'Failed to get dogs (sad face).' });
+        console.error("Dang, database error when retrieving walkers:", err); // try to debug db connection issue
+        res.status(500).json({ error: 'Failed to get walkers (really big sad face).' });
     }
 })
 
