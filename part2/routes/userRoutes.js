@@ -35,7 +35,7 @@ router.get('/me', (req, res) => {
   res.json(req.session.user);
 });
 
-// POST login
+// POST login (dummy version)
 router.post('/login', async (req, res) => {
   // , want username and password from request body
   const { username, password } = req.body; // chnaged from  email to username=
@@ -52,7 +52,7 @@ router.post('/login', async (req, res) => {
       return res.status(401).json({ error: 'Invalid credentials' });
     }
 
-    // create a session for the user so the server can remember
+    // create a session for the user so
     req.session.user = {
       id: rows[0].user_id,
       username: rows[0].username,
