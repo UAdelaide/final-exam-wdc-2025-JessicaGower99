@@ -19,22 +19,46 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
-// /////////////////
-// //get dogs as json
-// app.get('/api/dogs', async (req, res) => {
-//     try {
-//         const [rows] = await db.query(`
-//       SELECT dog.name AS dog_name, dog.size, user.username AS owner_username
-//       FROM Dogs dog
-//       JOIN Users user ON dog.owner_id = user.user_id
-//     `);
-//         res.json(rows);
-//     } catch (err) {
-//         console.error("DATABASE ERROR:", err); // try to debug db connection issue
-//         res.status(500).json({ error: 'Failed to retrieve dogs.' });
-//     }
-// });
-// ///////////////
+////////////////////////
+//debug connection
+
+(async () => {
+    try {
+        // Connect to MySQL without specifying a database
+        const connection = await mysql.createConnection({
+            host: 'localhost',
+            user: 'root',
+            password: '' // Set your MySQL root password
+        });
+
+        // Create the database if it doesn't exist
+        await connection.query('CREATE DATABASE IF NOT EXISTS testdb');
+        await connection.end();
+
+        // Now connect to the created database
+        db = await mysql.createConnection({
+            host: 'localhost',
+            user: 'root',
+            password: '',
+            database: 'testdb'
+        });
+
+        // /////////////////
+        // //get dogs as json
+        // app.get('/api/dogs', async (req, res) => {
+        //     try {
+        //         const [rows] = await db.query(`
+        //       SELECT dog.name AS dog_name, dog.size, user.username AS owner_username
+        //       FROM Dogs dog
+        //       JOIN Users user ON dog.owner_id = user.user_id
+        //     `);
+        //         res.json(rows);
+        //     } catch (err) {
+        //         console.error("DATABASE ERROR:", err); // try to debug db connection issue
+        //         res.status(500).json({ error: 'Failed to retrieve dogs.' });
+        //     }
+        // });
+        // ///////////////
 
 
-module.exports = app;
+        module.exports = app;
