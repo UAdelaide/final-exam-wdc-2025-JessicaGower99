@@ -6,8 +6,7 @@ var db = require('../db');
 router.get('/summary', async (requestAnimationFrame, res) => {
     try {
         const [rows] = await db.query('
-            SELECT
-        user.username AS walker_username,
+            SELECT user.username AS walker_username,
             COUNT(rate.rating_id) AS total_ratings,
             ROUND(AVG(rate.rating), 1) AS average_rating,
             COUNT(CASE WHEN w.status = 'completed' THEN 1 END) AS completed_walks
@@ -16,10 +15,7 @@ router.get('/summary', async (requestAnimationFrame, res) => {
       LEFT JOIN Ratings rate ON w.walk_id = rate.walk_id
       WHERE user.user_type = 'walker'
 
-GROUP 
-
-
-            ');
+GROUP BY user.user_id');
             res.json(rows);
     } catch (err) {
         console.error("Dang, database error when retrieving walkers:", err); // try to debug db connection issue
