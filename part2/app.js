@@ -19,9 +19,9 @@ app.use(session({
     resave: false,
     saveUninitialized: false, // so wasted session on those thta visit but dont loggin
     cookie: { /////////////////////////////////////////////////////////////////////////////////
-        secure: false, // true if using HTTPS
+        secure: false, // true if using https (using http so false)
         httpOnly: true,
-        maxAge: 1000 * 60 * 60 // 1 hour
+        maxAge: 1000 * 60 * 60 // the cookie lives for 1 hour
     }
 }));
 
