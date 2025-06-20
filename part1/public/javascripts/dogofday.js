@@ -12,9 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
             };
         },
         mounted() {
-        this.fetchDogImage(); // Use method below for fetching
-    },
-    methods: {
             fetch('https://dog.ceo/api/breeds/image/random')
                 .then(function (res) {
                     return res.json();
@@ -24,8 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }.bind(this))
                 .catch(function (err) {
                     console.error('Failed to get a cute dog image:', err);
-                })
-        },
-        
+                });
+        }
     }).mount('#app');
 });
