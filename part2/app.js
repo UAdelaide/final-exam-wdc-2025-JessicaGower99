@@ -17,7 +17,7 @@ const userRoutes = require('./routes/userRoutes');
 app.use(session({
     secret: 'this_is_secret',
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false // so wasted session on those thta visit but dont loggin
 }));
 
 app.use('/api/walks', walkRoutes);
