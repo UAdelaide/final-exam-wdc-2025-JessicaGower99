@@ -20,6 +20,18 @@ app.use(session({
     saveUninitialized: false // so wasted session on those thta visit but dont loggin
 }));
 
+
+app.use(session({
+  secret: 'your-secret-key',
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    secure: false, // true if using HTTPS
+    httpOnly: true,
+    maxAge: 1000 * 60 * 60 // 1 hour
+  }
+}));
+
 app.use('/api/walks', walkRoutes);
 app.use('/api/users', userRoutes);
 
