@@ -7,7 +7,7 @@ const app = Vue.createApp({
             dogAge: '3 years'
         };
     },
-    //get random image
+    // get random image of dog
     mounted() {
         fetch('https://dog.ceo/api/breeds/image/random')
             .then(res => res.json())
