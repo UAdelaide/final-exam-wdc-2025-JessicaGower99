@@ -18,15 +18,11 @@ a {
   margin-bottom: 30px;
 }
 
-.dogContent{
-
-
-  .dog-info {
+.dogContent {
   display: flex;
-  align-items: center; /* vertically center the image and text */
-  justify-content: center; /* center horizontally if container is wider */
-  gap: 30px; /* space between image and text */
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
   max-width: 700px;
-  margin: 0 auto; /* center the flex container */
-}
+  margin: 0 auto;
 }
