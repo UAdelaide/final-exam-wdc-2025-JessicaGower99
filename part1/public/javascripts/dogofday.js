@@ -22,12 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 .catch(function (err) {
                     console.error('Failed to get a cute dog image:', err);
                 });
-
-        },
-        methods: {
-            refreshPage() {
-                location.reload();
-            }
         }
     }).mount('#app');
 });
