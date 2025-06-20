@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
     `);
         res.json(rows);
     } catch (err) {
-        console.error("DATABASE CONNECTION ERROR:", err); // try to debug db connection issue
+        console.error("Database link error:", err); // try to debug db connection issue
         res.status(500).json({ error: 'Failed to get dogs (sad face).' });
     }
 });
