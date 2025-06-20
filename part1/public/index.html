@@ -11,13 +11,11 @@
 
 <body>
     <div id="app">
-        <h1>Dog of the Day: {{ dogName }} </h1>
-
-        <img v-if="dogImageUrl" :src="dogImageUrl" alt="A dog is supposed to be here." width="300" />
+        <h1>Dog of the Day: {{ dogName }}</h1>
+        <img v-if="dogImageUrl" :src="dogImageUrl" alt="Cute dog" width="300" />
         <p>Name: {{ dogName }}</p>
         <p>Breed: {{ dogBreed }}</p>
         <p>Age: {{ dogAge }}</p>
-
     </div>
 </body>
 
