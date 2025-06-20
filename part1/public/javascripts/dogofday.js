@@ -6,13 +6,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const app = createApp({
         data() {
             return {
-                dogImageUrl: '',  =// Note: use consistent camelCase
+                dogImageUrl: '',
                 dogName: 'Stinky',
                 dogBreed: 'Unknown',
                 dogAge: '3 years'
             };
         },
-        // mounted must be inside the component options object, at same level as data
         mounted() {
             fetch('https://dog.ceo/api/breeds/image/random')
                 .then(res => res.json())
