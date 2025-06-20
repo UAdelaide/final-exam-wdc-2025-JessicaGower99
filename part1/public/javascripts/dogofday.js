@@ -24,7 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 }.bind(this))
                 .catch(function (err) {
                     console.error('Failed to get a cute dog image:', err);
-                });
-        }
+                })
+        },
+        
     }).mount('#app');
 });
