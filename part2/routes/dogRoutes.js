@@ -17,4 +17,19 @@ router.get('/owners/dogs', async (req, res) => {
     }
 });
 
+
+
+////////////
+
+// GET /api/dogs - Returns all dogs
+router.get('/', async (req, res) => {
+  try {
+    const [dogs] = await db.query('SELECT dog_id, name, size, owner_id FROM Dogs');
+    res.json(dogs);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Failed to get dogs' });
+  }
+});
+////////////////////////////
 module.exports = router;
