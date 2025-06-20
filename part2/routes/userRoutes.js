@@ -64,8 +64,8 @@ router.post('/login', async (req, res) => {
     res.status(500).json({ error: 'Login failed' });
   }
 });
-/////////////////////////////////////////////////////////////
 
+// logout of session and destroy the session cookie
 router.post('/logout', (req, res) => {
   req.session.destroy(err => {
     if (err) {
