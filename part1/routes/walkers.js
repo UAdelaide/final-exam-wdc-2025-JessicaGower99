@@ -11,7 +11,10 @@ router.get('/summary', async (requestAnimationFrame, res) => {
             COUNT(rate.rating_id) AS total_ratings,
             ROUND(AVG(rate.rating), 1) AS average_rating,
             COUNT(CASE WHEN w.status = 'completed' THEN 1 END) AS completed_walks
-            
+            FROM Users user
+      LEFT JOIN Walks w ON user.user_id = w.walker_id
+
+
 
             ');
             res.json(rows);
