@@ -23,11 +23,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     console.error('Failed to get a cute dog image:', err);
                 });
 
-        }
-        ,
+        },
         methods: {
             refreshPage() {
-                location.reload(); // This reloads the page
+                location.reload();
             }
         }
     }).mount('#app');
