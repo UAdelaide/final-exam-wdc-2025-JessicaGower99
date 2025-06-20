@@ -22,7 +22,9 @@ router.get('/owners/dogs', async (req, res) => {
 ////////////
 
 // GET /api/dogs - Returns all dogs
+// dogRoutes.js
 router.get('/', async (req, res) => {
+  console.log('GET /api/dogs hit');
   try {
     const [dogs] = await db.query('SELECT dog_id, name, size, owner_id FROM Dogs');
     res.json(dogs);
