@@ -87,7 +87,7 @@
             if (!res.ok) throw new Error('Failed to get current user');
             const userData = await res.json();
             console.log('Current user data:', userData);
-            return userData.user_id; // adjust if API uses a different key
+            return userData.user_id;
           } catch (err) {
             error.value = err.message;
             return null;
