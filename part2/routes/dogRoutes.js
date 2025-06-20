@@ -28,9 +28,5 @@ router.get('/dogs', async (req, res) => {
         res.status(500).json({ error: 'Failed to get dogs' });
     }
 });
-
-router.get('/test', (req, res) => {
-    res.send('Dog routes working');
-});
 ////////////////////////////
 module.exports = router;
