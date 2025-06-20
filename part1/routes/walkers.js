@@ -5,7 +5,9 @@ var db = require('../db');
 // get walkers as json - path /api/walkers/summary'
 router.get('/summary', async (requestAnimationFrame, res) => {
     try {
-        const [row]
+        const [rows] = await db.query('
+            ');
+            res.json(rows);
     }
 })
 
