@@ -133,6 +133,22 @@
       }
     }).mount('#app');
 
+    document.getElementById('logoutBtn').addEventListener('click', async () => {
+      try {
+        const res = await fetch('/api/users/logout', {
+          method: 'POST',
+          credentials: 'include'
+        });
+        if (res.ok) {
+          window.location.href = '/login.html'; // Update this path if your login page is named differently
+        } else {
+          alert('Logout failed');
+        }
+      } catch (err) {
+        alert('Error logging out');
+      }
+    });
+
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
