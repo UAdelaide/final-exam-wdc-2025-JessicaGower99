@@ -65,11 +65,11 @@
         // get user_id of the user logged in
         async function getCurrentUser() {
           try {
-            const res = await fetch('/api/users/me', { credentials: 'include' });
+            const res = await fetch('/api/users/me', { credentials: 'include' }); // include sessioj cookie
             if (!res.ok) throw new Error('Failed to get current user');
             const userData = await res.json();
             console.log('Current user data:', userData);
-            return userData.id;
+            return userData.id; 
           } catch (err) {
             error.value = err.message;
             return null;
