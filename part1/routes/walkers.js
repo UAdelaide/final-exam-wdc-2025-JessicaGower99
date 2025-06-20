@@ -12,7 +12,6 @@ router.get('/summary', async (requestAnimationFrame, res) => {
         console.error("Dang, database error when retrieving walkers:", err); // try to debug db connection issue
         res.status(500).json({ error: 'Failed to get walkers (really big sad face).' });
     }
-})
-
+});
 
 module.exports = router;
