@@ -5,8 +5,7 @@ var db = require('../db');
 // get walkers as json - path /api/walkers/summary'
 router.get('/summary', async (requestAnimationFrame, res) => {
     try {
-        const [rows] = await db.query('
-                SELECT
+        const [rows] = await db.query('    SELECT
         user.username AS walker_username,
             COUNT(rate.rating_id) AS total_ratings,
             ROUND(AVG(rate.rating), 1) AS average_rating,
