@@ -12,7 +12,10 @@ router.get('/open', async (req, res) => {
       JOIN Dogs dog ON walkreq.dog_id = dog.dog_id
       WHERE walkreq.status = 'open'
     `);
-    } catch (err) { }
+    } catch (err) {
+        console.error("Database link error:", err); // try to debug db connection issue
+        res.status(500).json({ error: 'Failed to get walk requests (big sad face).' });
+    }
 });
 
 
