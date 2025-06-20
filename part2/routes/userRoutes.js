@@ -37,7 +37,7 @@ router.get('/me', (req, res) => {
 
 // POST login (dummy version)
 router.post('/login', async (req, res) => {
-  const { username, password } = req.body; // chnaged from  email to username
+  const { username, password } = req.body; // chnaged from  email to username, want username and password from
 
   try {
     const [rows] = await db.query(`
