@@ -2,8 +2,8 @@ var express = require('express');
 var router = express.Router();
 var db = require('../db');
 
-// get open walk requests
-router.get('/open')
+// get open walk requests - path /api/walkrequests/open
+router.get('/open', async (requestAnimationFrame, res))
 
 
 module.exports = router;
