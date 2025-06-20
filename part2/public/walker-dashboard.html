@@ -83,7 +83,7 @@
         /////////////////////////
         async function getCurrentUser() {
           try {
-            const res = await fetch('/api/users/me', { credentials: 'include' }); // important!
+            const res = await fetch('/api/users/me', { credentials: 'include' });
             if (!res.ok) throw new Error('Failed to get current user');
             const userData = await res.json();
             console.log('Current user data:', userData);
