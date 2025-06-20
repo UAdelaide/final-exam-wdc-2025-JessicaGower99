@@ -31,7 +31,7 @@ app.get('/api/dogs', async (req, res) => {
     `);
         res.json(rows);
     } catch (err) {
-        console.error(err);
+        console.error("DATABASE ERROR:", err);
         res.status(500).json({ error: 'Failed to retrieve dogs.' });
     }
 });
