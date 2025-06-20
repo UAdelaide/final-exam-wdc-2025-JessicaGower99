@@ -8,6 +8,9 @@ router.get('/summary', async (requestAnimationFrame, res) => {
         const [rows] = await db.query('
             ');
             res.json(rows);
+    } catch (err) {
+        console.error("Database link error:", err); // try to debug db connection issue
+        res.status(500).json({ error: 'Failed to get dogs (sad face).' });
     }
 })
 
