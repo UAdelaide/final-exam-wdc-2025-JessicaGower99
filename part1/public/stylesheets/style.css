@@ -12,3 +12,10 @@ body {
 a {
   color: #00B7FF;
 }
+
+#app h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#app 
