@@ -13,7 +13,7 @@ router.get('/open', async (req, res) => {
       WHERE walkreq.status = 'open'
     `);
     } catch (err) {
-        console.error("ERRRR error fetching walk reDatabase link error:", err); // try to debug db connection issue
+        console.error("ERRRR error fetching walk requests:", err); // try to debug db connection issue
         res.status(500).json({ error: 'Failed to get walk requests (big sad face).' });
     }
 });
