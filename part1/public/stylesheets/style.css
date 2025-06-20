@@ -1,20 +1,13 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
-a {
-  color: #00B7FF;
-}
-
-
-
-  /* new background image styles */
   background-image: url('/images/honey.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;  /* fixed when scrolling */
+  background-attachment: fixed;
+}
 
-  color: white; /* optional - make text readable on dark images */
+a {
+  color: #00B7FF;
 }
