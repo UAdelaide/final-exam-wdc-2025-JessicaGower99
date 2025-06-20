@@ -105,6 +105,20 @@
         const message = ref('');
         const error = ref('');
 
+
+                // TODO: Replace with actual owner ID from session/auth
+        const ownerId = 3;
+
+        async function loadDogs() {
+          try {
+            const res = await fetch(`/api/owners/${ownerId}/dogs`);
+            if (!res.ok) throw new Error('Failed to load dogs');
+            dogs.value = await res.json();
+          } catch (err) {
+            error.value = err.message;
+          }
+        }
+
         async function loadWalks() {
           try {
             const res = await fetch('/api/walks');
