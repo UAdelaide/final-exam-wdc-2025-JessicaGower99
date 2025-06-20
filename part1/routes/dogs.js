@@ -3,7 +3,7 @@ var router = express.Router();
 var db = require('../db');
 
 
-//get dogs as json
+// get dogs as json
 router.get('/api/dogs', async (req, res) => {
     try {
         const [rows] = await db.query(`
