@@ -12,7 +12,7 @@ router.get('/summary', async (req, res) => {
         ROUND(AVG(rate.rating), 1) AS average_rating,
         COUNT(CASE WHEN w.status = 'completed' THEN 1 END) AS completed_walks
       FROM Users user
-      LEFT JOIN Walks w ON user.user_id = w.walker_id
+      LEFT JOIN WalkRequests w ON user.user_id = w.walker_id
       LEFT JOIN Ratings r ON w.walk_id = rate.walk_id
       WHERE user.user_type = 'walker'
       GROUP BY user.user_id
