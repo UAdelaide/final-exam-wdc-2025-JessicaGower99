@@ -3,6 +3,7 @@ const app = Vue.createApp({
         return {
             dogImgURL: '',
             dogName: 'Stinky',
-            dogBreed: 'unk'
+            dogBreed: 'Unknown',
+            dogAge: ''
         };
     },);
