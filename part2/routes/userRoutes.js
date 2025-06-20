@@ -59,7 +59,7 @@ router.post('/login', async (req, res) => {
       role: rows[0].role
     };
 
-    // ✅ Send role so frontend knows where to redirect
+    // end role so frontend knows where to redirect
     res.json({ message: 'Login successful', role: rows[0].role });
   } catch (error) {
     res.status(500).json({ error: 'Login failed' });
