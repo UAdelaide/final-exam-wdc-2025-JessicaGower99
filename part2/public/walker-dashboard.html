@@ -80,6 +80,41 @@
         //     message.value = '';
         //   }
         // }
+        /////////////////////////
+        async function getCurrentUser() {
+          try {
+            const res = await fetch('/api/users/me');
+            if (!res.ok) throw new Error('Failed to get current user');
+            const userData = await res.json();
+            return userData.user_id;
+          } catch (err) {
+            error.value = err.message;
+            return null;
+          }
+        }
+
+        async function applyToWalk(requestId) {
+          try {
+            const userId = await getCurrentUser();  // call it here!
+            if (!userId) throw new Error('No user logged in');
+
+            const res = await fetch(`/api/walks/${requestId}/apply`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ walker_id: userId })
+            });
+            const result = await res.json();
+
+            if (!res.ok) throw new Error(result.error || 'Application failed');
+            message.value = result.message;
+            error.value = '';
+            await loadWalkRequests();
+          } catch (err) {
+            error.value = err.message;
+            message.value = '';
+          }
+        }
+        ///////////////////////////////
 
         onMounted(() => {
           loadWalkRequests();
