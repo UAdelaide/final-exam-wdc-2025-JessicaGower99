@@ -102,14 +102,10 @@
         const message = ref('');
         const error = ref('');
 
-
-        ///////////////////////////////////////////
-        //const ownerId = 1;
-
+        //
         async function loadDogs() {
           try {
             const res = await fetch(`/api/owners/dogs`);
-            // const res = await fetch(`/api/owners/${ownerId}/dogs`);
             if (!res.ok) throw new Error('Failed to load dogs');
             dogs.value = await res.json();
           } catch (err) {
