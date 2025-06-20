@@ -1,5 +1,6 @@
 const app = Vue.createApp({
-  data() {
-    return {
-        dogImgURL: '',
-        
+    data() {
+        return {
+            dogImgURL: '',
+        };
+    },);
