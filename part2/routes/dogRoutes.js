@@ -17,7 +17,6 @@ router.get('/owners/dogs', async (req, res) => {
     }
 });
 
-//////////////////////////////////////////////////
 // get request to return all dogs and their details from the db and stores in the 'dogs' array
 router.get('/dogs', async (req, res) => {
     try {
@@ -28,5 +27,5 @@ router.get('/dogs', async (req, res) => {
         res.status(500).json({ error: 'Failed to get dogs' });
     }
 });
-////////////////////////////
+
 module.exports = router;
