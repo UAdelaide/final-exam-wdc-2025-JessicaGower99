@@ -94,26 +94,7 @@ async function seedDatabase() {
       )
     `);
 
-    // insert into walk requests
-        const [appRows] = await db.execute('SELECT COUNT(*) AS count FROM WalkApplications');
-        if (appRows[0].count === 0) {
-            await db.execute(`
-        INSERT INTO WalkApplications (request_id, walker_id, status)
-        VALUES
-          (
-            (SELECT request_id FROM WalkRequests WHERE location = 'Parklands'),
-            (SELECT user_id FROM Users WHERE username = 'bobwalker'),
-            'pending'
-          ),
-          (
-            (SELECT request_id FROM WalkRequests WHERE location = 'Unley Road'),
-            (SELECT user_id FROM Users WHERE username = 'edwingower'),
-            'accepted'
-          )
-      `);
-        }
-
-        // WALK RATINGS
+        // walk ratinsg table
         await db.execute(`
       CREATE TABLE IF NOT EXISTS WalkRatings (
         rating_id INT AUTO_INCREMENT PRIMARY KEY,
