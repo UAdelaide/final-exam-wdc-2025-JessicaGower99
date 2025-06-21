@@ -125,7 +125,7 @@ async function seedDatabase() {
       `);
         }
 
-        console.log('All tables created and seeded if empty.');
+        console.log('Seeding successful. All tables created and seeded if empty.');
     } catch (err) {
         console.error('Seeding failed:', err.message);
     }
