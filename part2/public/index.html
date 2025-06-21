@@ -110,14 +110,12 @@
           }
         },
 
-
-        ////////////////////////////
         async fetchDogs() {
           try {
             const res = await fetch('/api/dogs');
             const dogsData = await res.json();
 
-            // random photo for evFor each dog, add a random image
+            // random photo for every registered dog
             const dogsImage = await Promise.all(
               dogsData.map(async (dog) => {
                 const imgRes = await fetch('https://dog.ceo/api/breeds/image/random');
@@ -131,7 +129,6 @@
             console.error('Failed to get a cute dog image:', err);
           }
         }
-        //////////////////
       },
       mounted() {
         this.fetchDogs();
