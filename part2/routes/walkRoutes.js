@@ -20,35 +20,10 @@ router.get('/', async (req, res) => {
 });
 
 //POST a new walk request (from owner)
-// router.post('/', async (req, res) => {
-//   const { dog_id, requested_time, duration_minutes, location } = req.body;
-
-//   try {
-//     const [result] = await db.query(`
-//       INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location)
-//       VALUES (?, ?, ?, ?)
-//     `, [dog_id, requested_time, duration_minutes, location]);
-
-//     res.status(201).json({ message: 'Walk request created', request_id: result.insertId });
-//   } catch (error) {
-//     res.status(500).json({ error: 'Failed to create walk request' });
-//   }
-// });
-router.post('/', ensureLoggedIn, async (req, res) => {
-  const ownerId = req.session.user.id;
+router.post('/', async (req, res) => {
   const { dog_id, requested_time, duration_minutes, location } = req.body;
 
   try {
-    // Verify dog ownership
-    const [dogs] = await db.query(
-      'SELECT * FROM Dogs WHERE dog_id = ? AND owner_id = ?',
-      [dog_id, ownerId]
-    );
-
-    if (dogs.length === 0) {
-      return res.status(403).json({ error: 'You do not own this dog' });
-    }
-
     const [result] = await db.query(`
       INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location)
       VALUES (?, ?, ?, ?)
@@ -56,17 +31,51 @@ router.post('/', ensureLoggedIn, async (req, res) => {
 
     res.status(201).json({ message: 'Walk request created', request_id: result.insertId });
   } catch (error) {
-    console.error('SQL Error:', error);
     res.status(500).json({ error: 'Failed to create walk request' });
   }
 });
-
 ///////////////////////
-router.get('/my-requests', ensureLoggedIn, async (req, res) => {
-  const ownerId = req.session.user.id;
+// //troubleshooting
+// router.post('/', async (req, res) => {
+//   const { dog_id, requested_time, duration_minutes, location } = req.body;
+//   const ownerId = req.session.user?.id;
+
+//   if (!ownerId) {
+//     return res.status(401).json({ error: 'Not logged in' });
+//   }
+
+//   try {
+//     // Ensure the dog belongs to the logged-in owner
+//     const [dogs] = await db.query(
+//       'SELECT * FROM Dogs WHERE dog_id = ? AND owner_id = ?',
+//       [dog_id, ownerId]
+//     );
+
+//     if (dogs.length === 0) {
+//       return res.status(403).json({ error: 'You do not own this dog' });
+//     }
+
+//     // Proceed to insert the walk request
+//     const [result] = await db.query(`
+//       INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location)
+//       VALUES (?, ?, ?, ?)
+//     `, [dog_id, requested_time, duration_minutes, location]);
+
+//     res.status(201).json({ message: 'Walk request created', request_id: result.insertId });
+//   } catch (error) {
+//     console.error('SQL Error:', error);
+//     res.status(500).json({ error: 'Failed to create walk request' });
+//   }
+// });
+router.get('/my-requests', async (req, res) => {
+  const ownerId = req.session.user?.id;
+
+  if (!ownerId) {
+    return res.status(401).json({ error: 'Not logged in' });
+  }
 
   try {
-    const [rows] = await db.query(`
+  const [rows] = await db.query(`
       SELECT wr.*, d.name AS dog_name, d.size
       FROM WalkRequests wr
       JOIN Dogs d ON wr.dog_id = d.dog_id
@@ -80,7 +89,6 @@ router.get('/my-requests', ensureLoggedIn, async (req, res) => {
     res.status(500).json({ error: 'Failed to fetch owner walk requests' });
   }
 });
-
 // ////////////////////////
 
 // POST an application to walk a dog (from walker)
