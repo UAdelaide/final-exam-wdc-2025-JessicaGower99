@@ -52,7 +52,7 @@ async function seedDatabase() {
       `);
         }
 
-        // WALK REQUESTS
+        // walk request tables
         await db.execute(`
       CREATE TABLE IF NOT EXISTS WalkRequests (
         request_id INT AUTO_INCREMENT PRIMARY KEY,
