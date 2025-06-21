@@ -51,22 +51,7 @@ router.post('/', async (req, res) => {
 //       [dog_id, ownerId]
 //     );
 
-//     if (dogs.length === 0) {
-//       return res.status(403).json({ error: 'You do not own this dog' });
-//     }
-
-//     // Proceed to insert the walk request
-//     const [result] = await db.query(`
-//       INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location)
-//       VALUES (?, ?, ?, ?)
-//     `, [dog_id, requested_time, duration_minutes, location]);
-
-//     res.status(201).json({ message: 'Walk request created', request_id: result.insertId });
-//   } catch (error) {
-//     console.error('SQL Error:', error);
-//     res.status(500).json({ error: 'Failed to create walk request' });
-//   }
-// });
+/
 router.get('/my-requests', async (req, res) => {
   const ownerId = req.session.user?.id;
 
