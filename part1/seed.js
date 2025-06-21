@@ -66,7 +66,7 @@ async function seedDatabase() {
       )
     `);
 
-    // 
+    // insert into wak requests
         const [walkRows] = await db.execute('SELECT COUNT(*) AS count FROM WalkRequests');
         if (walkRows[0].count === 0) {
             await db.execute(`
