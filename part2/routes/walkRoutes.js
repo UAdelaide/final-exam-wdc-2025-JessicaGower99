@@ -35,7 +35,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-// return walk requestion that are owner specific and are open
+// return walk requests that are owner specific and are open
 router.get('/my-requests', async (req, res) => {
   const ownerId = req.session.user?.id;
   if (!ownerId) return res.status(401).json({ error: 'Not logged in' });
