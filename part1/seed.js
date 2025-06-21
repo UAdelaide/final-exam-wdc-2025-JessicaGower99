@@ -52,7 +52,7 @@ async function seedDatabase() {
       `);
         }
 
-        // walk request tables
+        // walk request table
         await db.execute(`
       CREATE TABLE IF NOT EXISTS WalkRequests (
         request_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -66,6 +66,7 @@ async function seedDatabase() {
       )
     `);
 
+    // 
         const [walkRows] = await db.execute('SELECT COUNT(*) AS count FROM WalkRequests');
         if (walkRows[0].count === 0) {
             await db.execute(`
