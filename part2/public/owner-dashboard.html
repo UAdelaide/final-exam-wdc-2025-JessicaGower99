@@ -115,6 +115,8 @@
 
         async function loadWalks() {
           try {
+
+            walks.value = []; // clear first  ////////////////////////////////////////
             //const res = await fetch('/api/walks');
             const res = await fetch('/api/walks/my-requests');
             walks.value = await res.json();
