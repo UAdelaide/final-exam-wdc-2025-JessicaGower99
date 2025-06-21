@@ -20,20 +20,20 @@ router.get('/', async (req, res) => {
 });
 
 //POST a new walk request (from owner)
-router.post('/', async (req, res) => {
-  const { dog_id, requested_time, duration_minutes, location } = req.body;
+// router.post('/', async (req, res) => {
+//   const { dog_id, requested_time, duration_minutes, location } = req.body;
 
-  try {
-    const [result] = await db.query(`
-      INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location)
-      VALUES (?, ?, ?, ?)
-    `, [dog_id, requested_time, duration_minutes, location]);
+//   try {
+//     const [result] = await db.query(`
+//       INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location)
+//       VALUES (?, ?, ?, ?)
+//     `, [dog_id, requested_time, duration_minutes, location]);
 
-    res.status(201).json({ message: 'Walk request created', request_id: result.insertId });
-  } catch (error) {
-    res.status(500).json({ error: 'Failed to create walk request' });
-  }
-});
+//     res.status(201).json({ message: 'Walk request created', request_id: result.insertId });
+//   } catch (error) {
+//     res.status(500).json({ error: 'Failed to create walk request' });
+//   }
+// });
 ///////////////////////
 router.get('/my-requests', ensureLoggedIn, async (req, res) => {
   const ownerId = req.session.user.id;
