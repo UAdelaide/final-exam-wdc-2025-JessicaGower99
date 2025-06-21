@@ -38,13 +38,10 @@ router.post('/', async (req, res) => {
 
 router.get('/my-requests', async (req, res) => {
   const ownerId = req.session.user?.id;
-
-  if (!ownerId) {
-    return res.status(401).json({ error: 'Not logged in' });
-  }
+  if (!ownerId) return res.status(401).json({ error: 'Not logged in' });
 
   try {
-  const [rows] = await db.query(`
+    const [rows] = await db.query(`
       SELECT wr.*, d.name AS dog_name, d.size
       FROM WalkRequests wr
       JOIN Dogs d ON wr.dog_id = d.dog_id
@@ -52,12 +49,14 @@ router.get('/my-requests', async (req, res) => {
       ORDER BY wr.requested_time DESC
     `, [ownerId]);
 
+    console.log(`Fetched ${rows.length} open requests for owner ${ownerId}:`, rows);
     res.json(rows);
   } catch (error) {
     console.error('SQL Error:', error);
     res.status(500).json({ error: 'Failed to fetch owner walk requests' });
   }
 });
+
 // ////////////////////////
 
 // POST an application to walk a dog (from walker)
