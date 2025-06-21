@@ -51,7 +51,6 @@ router.get('/my-requests', async (req, res) => {
       ORDER BY wr.requested_time DESC
     `, [ownerId]);
 
-  
     res.json(rows);
   } catch (error) {
     console.error('SQL Error:', error);
