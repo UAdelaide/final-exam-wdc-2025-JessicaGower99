@@ -115,10 +115,8 @@
 
         async function loadWalks() {
           try {
-
-            walks.value = []; // clear first  ////////////////////////////////////////
-            //const res = await fetch('/api/walks');
-            const res = await fetch('/api/walks/my-requests'); //////////////////////////
+            walks.value = []; // clear first
+            const res = await fetch('/api/walks/my-requests'); // updated path
             walks.value = await res.json();
           } catch (err) {
             error.value = 'Failed to load walk requests';
