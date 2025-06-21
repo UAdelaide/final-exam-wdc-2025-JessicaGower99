@@ -10,9 +10,11 @@ var walkrequestsRouter = require('./routes/walkrequests');
 var walkersRouter = require('./routes/walkers');
 
 var app = express();
+// seed the database with valyes if 
 const seedDatabase = require('./seed');
-seedDatabase();
-
+(async () => {
+    await seedDatabase();
+})();
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
