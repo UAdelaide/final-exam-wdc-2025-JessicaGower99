@@ -34,24 +34,7 @@ router.post('/', async (req, res) => {
     res.status(500).json({ error: 'Failed to create walk request' });
   }
 });
-///////////////////////
-// //troubleshooting
-// router.post('/', async (req, res) => {
-//   const { dog_id, requested_time, duration_minutes, location } = req.body;
-//   const ownerId = req.session.user?.id;
 
-//   if (!ownerId) {
-//     return res.status(401).json({ error: 'Not logged in' });
-//   }
-
-//   try {
-//     // Ensure the dog belongs to the logged-in owner
-//     const [dogs] = await db.query(
-//       'SELECT * FROM Dogs WHERE dog_id = ? AND owner_id = ?',
-//       [dog_id, ownerId]
-//     );
-
-/
 router.get('/my-requests', async (req, res) => {
   const ownerId = req.session.user?.id;
 
