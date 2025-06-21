@@ -34,6 +34,7 @@ router.post('/', async (req, res) => {
     res.status(500).json({ error: 'Failed to create walk request' });
   }
 });
+//////////////////////////////////
 
 router.get('/my-requests', async (req, res) => {
   const ownerId = req.session.user?.id;
