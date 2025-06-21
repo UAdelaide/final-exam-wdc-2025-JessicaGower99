@@ -14,7 +14,7 @@ async function seedDatabase() {
       )
     `);
 
-    // insert into users
+        // insert into users
         const [userRows] = await db.execute('SELECT COUNT(*) AS count FROM Users');
         if (userRows[0].count === 0) {
             await db.execute(`
@@ -38,7 +38,7 @@ async function seedDatabase() {
       )
     `);
 
-    // insert into dogs
+        // insert into dogs
         const [dogRows] = await db.execute('SELECT COUNT(*) AS count FROM Dogs');
         if (dogRows[0].count === 0) {
             await db.execute(`
@@ -66,7 +66,7 @@ async function seedDatabase() {
       )
     `);
 
-    // insert into wak requests
+        // insert into wak requests
         const [walkRows] = await db.execute('SELECT COUNT(*) AS count FROM WalkRequests');
         if (walkRows[0].count === 0) {
             await db.execute(`
@@ -94,7 +94,26 @@ async function seedDatabase() {
       )
     `);
 
-        // walk ratings table
+    // insert into walk requests
+        const [appRows] = await db.execute('SELECT COUNT(*) AS count FROM WalkApplications');
+        if (appRows[0].count === 0) {
+            await db.execute(`
+        INSERT INTO WalkApplications (request_id, walker_id, status)
+        VALUES
+          (
+            (SELECT request_id FROM WalkRequests WHERE location = 'Parklands'),
+            (SELECT user_id FROM Users WHERE username = 'bobwalker'),
+            'pending'
+          ),
+          (
+            (SELECT request_id FROM WalkRequests WHERE location = 'Unley Road'),
+            (SELECT user_id FROM Users WHERE username = 'edwingower'),
+            'accepted'
+          )
+      `);
+        }
+
+        // WALK RATINGS
         await db.execute(`
       CREATE TABLE IF NOT EXISTS WalkRatings (
         rating_id INT AUTO_INCREMENT PRIMARY KEY,
