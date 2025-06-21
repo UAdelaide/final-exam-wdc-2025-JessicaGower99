@@ -10,11 +10,13 @@ var walkrequestsRouter = require('./routes/walkrequests');
 var walkersRouter = require('./routes/walkers');
 
 var app = express();
-// seed the database with valyes if 
+
+// seed the database with valyes if not full
 const seedDatabase = require('./seed');
 (async () => {
     await seedDatabase();
 })();
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
