@@ -80,7 +80,7 @@ async function seedDatabase() {
       `);
         }
 
-        // WALK APPLICATIONS
+        // walk applictaions table
         await db.execute(`
       CREATE TABLE IF NOT EXISTS WalkApplications (
         application_id INT AUTO_INCREMENT PRIMARY KEY,
