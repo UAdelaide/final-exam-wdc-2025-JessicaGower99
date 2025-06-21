@@ -18,7 +18,7 @@ router.get('/owners/dogs', async (req, res) => {
 });
 
 //////////////////////////////////////////////////
-// get request to return all dogs and their details from the db
+// get request to return all dogs and their details from the db 
 router.get('/dogs', async (req, res) => {
     try {
         const [dogs] = await db.query('SELECT dog_id, name, size, owner_id FROM Dogs');
