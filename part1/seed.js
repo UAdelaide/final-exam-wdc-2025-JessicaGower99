@@ -2,7 +2,7 @@ const db = require('./db');
 
 async function seedDatabase() {
     try {
-        // USERS
+        // users table
         await db.execute(`
       CREATE TABLE IF NOT EXISTS Users (
         user_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -14,6 +14,7 @@ async function seedDatabase() {
       )
     `);
 
+    // insert into users
         const [userRows] = await db.execute('SELECT COUNT(*) AS count FROM Users');
         if (userRows[0].count === 0) {
             await db.execute(`
@@ -26,7 +27,7 @@ async function seedDatabase() {
       `);
         }
 
-        // DOGS
+        // dogs table
         await db.execute(`
       CREATE TABLE IF NOT EXISTS Dogs (
         dog_id INT AUTO_INCREMENT PRIMARY KEY,
