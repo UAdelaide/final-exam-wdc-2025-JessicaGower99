@@ -34,9 +34,8 @@ router.post('/', async (req, res) => {
     res.status(500).json({ error: 'Failed to create walk request' });
   }
 });
-//////////////////////////////////
 
-// return 
+// return walk requestion that are owner specific and are open
 router.get('/my-requests', async (req, res) => {
   const ownerId = req.session.user?.id;
   if (!ownerId) return res.status(401).json({ error: 'Not logged in' });
@@ -55,8 +54,6 @@ router.get('/my-requests', async (req, res) => {
     res.status(500).json({ error: 'Failed to fetch owner walk requests' });
   }
 });
-
-// ////////////////////////
 
 // POST an application to walk a dog (from walker)
 router.post('/:id/apply', async (req, res) => {
