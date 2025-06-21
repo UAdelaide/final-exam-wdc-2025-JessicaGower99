@@ -48,8 +48,6 @@ router.get('/my-requests', async (req, res) => {
       WHERE d.owner_id = ? AND wr.status = 'open'
       ORDER BY wr.requested_time DESC
     `, [ownerId]);
-
-    console.log(`Fetched ${rows.length} open requests for owner ${ownerId}:`, rows);
     res.json(rows);
   } catch (error) {
     console.error('SQL Error:', error);
